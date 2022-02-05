@@ -1,6 +1,6 @@
-SELECT C.CategoryName, COUNT(P.ProductName) AS TotalProducts
+SELECT c.CategoryName, COUNT(*) AS 'TOTAL'
 FROM Categories C
 JOIN Products P
 ON C.CategoryID = P.CategoryID
-GROUP BY C.CategoryName
-ORDER BY TotalProducts DESC
+GROUP BY c.CategoryName
+ORDER BY TOTAL DESC 
