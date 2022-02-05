@@ -1,7 +1,9 @@
-SELECT TOP 3 shipcountry, 
-             Avg(freight) AS AverageFreight 
-FROM   orders 
-WHERE  orderdate >= ( Dateadd(yy, -1, (SELECT Max(orderdate) 
-                                       FROM   orders)) ) 
-GROUP  BY shipcountry 
-ORDER  BY averagefreight DESC 
+SELECT TOP 3
+    ShipCountry, AVG(Freight) as AverageFreight
+FROM Orders
+WHERE OrderDate >(
+	(SELECT
+    DATEADD(yy, -1, MAX(OrderDate))
+FROM Orders))
+GROUP BY ShipCountry
+ORDER BY AverageFreight DESC
