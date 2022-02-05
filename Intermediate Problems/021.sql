@@ -1,4 +1,4 @@
-SELECT Country, City, COUNT(City) AS TotalCustomer 
+SELECT Country, City, COUNT(*) AS 'TotalCustomer'
 FROM Customers
-GROUP BY Country, City 
-ORDER BY TotalCustomer DESC
+GROUP BY Country, City
+ORDER BY TotalCustomer DESC 
