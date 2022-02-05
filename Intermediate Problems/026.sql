@@ -1,6 +1,6 @@
-SELECT TOP 3 shipcountry, 
-             Avg(freight) AS AverageFreight 
-FROM   orders 
-WHERE YEAR (OrderDate) = 2015
-GROUP  BY shipcountry 
-ORDER  BY averagefreight DESC 
+SELECT TOP 3
+    ShipCountry, AVG(Freight) as AverageFreight
+FROM Orders
+WHERE YEAR(OrderDate) = 2015
+GROUP BY ShipCountry
+ORDER BY AverageFreight DESC
