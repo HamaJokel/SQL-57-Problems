@@ -1,12 +1,10 @@
-SELECT E.employeeid, 
-       E.lastname, 
-       O.orderid, 
-       P.productname, 
-       D.quantity 
-FROM   orders AS O 
-       JOIN orderdetails D 
-         ON O.orderid = D.orderid 
-       JOIN products P 
-         ON D.productid = P.productid 
-       JOIN employees E 
-         ON O.employeeid = E.employeeid 
+SELECT 
+  E.EmployeeID, 
+  E.LastName, 
+  OD.OrderID, 
+  OD.ProductID, 
+  OD.Quantity 
+FROM 
+  Employees E 
+  JOIN Orders O ON E.EmployeeID = O.EmployeeID 
+  JOIN OrderDetails OD ON O.OrderID = OD.OrderID
