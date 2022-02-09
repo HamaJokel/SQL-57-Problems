@@ -1,6 +1,8 @@
-SELECT C.customerid, 
-       O.customerid 
-FROM   customers C 
-       LEFT JOIN orders O 
-              ON C.customerid = O.customerid 
-WHERE  O.customerid IS NULL 
+SELECT 
+  C.CustomerID, 
+  O.CustomerID 
+FROM 
+  Customers C 
+  LEFT JOIN Orders O ON O.CustomerID = C.CustomerID 
+WHERE 
+  O.CustomerID IS NULL
