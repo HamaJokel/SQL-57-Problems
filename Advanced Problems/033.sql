@@ -14,4 +14,4 @@ WITH cte AS
 SELECT * 
 FROM cte 
 WHERE totalorderamount >= 15000
-ORDER BY totalorderamount DESC
+ORDER BY totalorderamount DESC 
