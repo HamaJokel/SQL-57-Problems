@@ -18,4 +18,4 @@ SELECT customerid,
        totalorderamount 
 FROM   cte 
 WHERE  totalorderamount >= 10000 
-ORDER  BY totalorderamount DESC 
+ORDER  BY totalorderamount DESC  
