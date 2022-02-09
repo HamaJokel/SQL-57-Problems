@@ -1,7 +1,14 @@
-SELECT employeeid, 
-       orderid, 
-       orderdate 
-FROM   orders 
-WHERE  orderdate = Eomonth(orderdate) 
-ORDER  BY employeeid, 
-          orderdate 
+SELECT 
+  EmployeeID, 
+  OrderID, 
+  OrderDate 
+FROM 
+  Orders 
+WHERE 
+  CAST(OrderDate AS DATE) = CAST(
+    EOMONTH(OrderDate) AS DATE
+  ) 
+ORDER BY 
+  EmployeeID, 
+  OrderID, 
+  OrderDate
