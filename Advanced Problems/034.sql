@@ -15,4 +15,4 @@ WITH cte
 SELECT * 
 FROM   cte 
 WHERE  TotalsWithDiscount >= 10000 
-ORDER  BY TotalsWithDiscount DESC 
+ORDER  BY TotalsWithDiscount DESC  
