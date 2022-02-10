@@ -17,7 +17,7 @@ SELECT E.EmployeeID,
        AllOrders.AllOrders, 
        Isnull(LateOrders.LateOrders, 0) 
        AS LateOrders, 
-	   PercentLateOrders = CONVERT(DECIMAL(10,2),(ISNULL(LateOrders.LateOrders,0) * 100) / AllOrders.AllOrders)
+	   PercentLateOrders = CONVERT(DECIMAL(10,2),(ISNULL(LateOrders.LateOrders,0)*100) / CONVERT(DECIMAL(10,2),AllOrders.AllOrders)/100)
 FROM   Employees E 
        LEFT JOIN LateOrders 
               ON E.EmployeeID = LateOrders.EmployeeID 
