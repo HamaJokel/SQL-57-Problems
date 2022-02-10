@@ -8,4 +8,4 @@ WITH cte AS(
 SELECT OrderID, ProductID, UnitPrice, Quantity, Discount
 FROM OrderDetails
 WHERE OrderID IN (Select OrderID from cte)
-ORDER BY OrderID, Quantity
+ORDER BY OrderID, Quantity 
