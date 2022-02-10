@@ -1,3 +1,9 @@
-SELECT OrderID, CONVERT(date, OrderDate) AS OrderDate, CONVERT(date, RequiredDate) AS RequiredDate, ShippedDate 
-FROM Orders
-WHERE RequiredDate <= ShippedDate
+SELECT 
+  OrderID, 
+  CAST(OrderDate AS DATE) AS OrderDate, 
+  CAST(RequiredDate AS DATE) AS RequiredDate, 
+  CAST(ShippedDate AS DATE) AS ShippedDate 
+FROM 
+  Orders 
+WHERE 
+  ShippedDate >= RequiredDate
