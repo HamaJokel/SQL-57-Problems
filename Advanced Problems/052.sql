@@ -1,7 +1,5 @@
-SELECT Country 
+SELECT DISTINCT Country
 FROM Suppliers
-
-UNION 
-
-SELECT Country
-FROM Customers 
+UNION
+SELECT DISTINCT Country
+FROM Customers
