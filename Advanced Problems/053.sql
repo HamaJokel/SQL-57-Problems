@@ -1,23 +1,30 @@
-WITH orders2016 
-     AS (SELECT customers.customerid, 
-                customers.companyname, 
-                TotalOrderAmount = Sum(quantity * unitprice) 
-         FROM   customers 
-                JOIN orders 
-                  ON orders.customerid = customers.customerid 
-                JOIN orderdetails 
-                  ON orders.orderid = orderdetails.orderid 
-         WHERE  orderdate >= '20160101' 
-                AND orderdate < '20170101' 
-         GROUP  BY customers.customerid, 
-                   customers.companyname) 
-SELECT customerid, 
-       companyname, 
-       totalorderamount, 
-       customergroupname 
-FROM   orders2016 
-       JOIN customergroupthresholds 
-         ON orders2016.totalorderamount BETWEEN 
-            customergroupthresholds.rangebottom AND 
-            customergroupthresholds.rangetop 
-ORDER  BY customerid 
+with Countries AS (
+  SELECT 
+    country 
+  FROM 
+    suppliers 
+  UNION 
+  SELECT 
+    country 
+  FROM 
+    customers
+), 
+SupplierCountry AS (
+  SELECT 
+    distinct country 
+  FROM 
+    suppliers
+), 
+CustomerCountry AS (
+  SELECT 
+    distinct country 
+  FROM 
+    customers
+) 
+SELECT 
+  sp.country as suplier_country, 
+  cp.country as customer_country 
+FROM 
+  Countries C 
+  LEFT JOIN SupplierCountry SP on C.Country = SP.Country 
+  LEFT JOIN Customercountry CP on C.Country = CP.Country
