@@ -13,3 +13,4 @@ SELECT Country = ISNULL(cte1.Country, cte2.Country), TotalSuppliers = ISNULL(cte
 FROM cte1
 FULL OUTER JOIN cte2 
 ON cte1.Country = cte2.Country
+ 
